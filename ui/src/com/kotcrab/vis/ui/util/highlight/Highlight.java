@@ -18,7 +18,10 @@ package com.kotcrab.vis.ui.util.highlight;
 
 import com.badlogic.gdx.graphics.Color;
 
-/** @author Kotcrab */
+/**
+ * @author Kotcrab
+ * @since 1.1.2
+ */
 public class Highlight implements Comparable<Highlight> {
 	private Color color;
 	private int start;

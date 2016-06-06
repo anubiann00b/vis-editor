@@ -20,21 +20,15 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.ui.widget.HighlightTextArea;
 
-/** @author Kotcrab */
+/**
+ * @author Kotcrab
+ * @since 1.1.2
+ */
 public class Highlighter {
 	private Array<HighlightRule> rules = new Array<HighlightRule>();
 
-	private Array<Highlight> highlights;
-	private HighlightTextArea textArea;
-
-	public void bind (HighlightTextArea textArea, Array<Highlight> highlights) {
-		this.textArea = textArea;
-		this.highlights = highlights;
-	}
-
 	public void addRule (HighlightRule rule) {
 		rules.add(rule);
-		if (textArea != null) textArea.processHighlighter();
 	}
 
 	public void word (Color color, String word) {
@@ -51,7 +45,11 @@ public class Highlighter {
 		addRule(new RegexHighlightRule(color, regex));
 	}
 
-	public void process () {
+	/**
+	 * @param textArea text rea
+	 * @param highlights current highlights, new highlights can be added to this list however it should not be modified in any other ways
+	 */
+	public void process (HighlightTextArea textArea, Array<Highlight> highlights) {
 		for (HighlightRule rule : rules) {
 			rule.process(textArea, highlights);
 		}

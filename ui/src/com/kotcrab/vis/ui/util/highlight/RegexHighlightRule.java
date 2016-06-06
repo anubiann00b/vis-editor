@@ -23,7 +23,10 @@ import com.kotcrab.vis.ui.widget.HighlightTextArea;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/** @author Kotcrab */
+/**
+ * @author Kotcrab
+ * @since 1.1.2
+ */
 public class RegexHighlightRule implements HighlightRule {
 	private Color color;
 	private Pattern pattern;

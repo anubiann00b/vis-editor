@@ -49,7 +49,7 @@ public class TestHighlightTextArea extends VisWindow {
 		highlighter.word(Color.valueOf("66CCB3"), "class", "private", "public", "protected", "if", "else", "void");
 		highlighter.word(Color.valueOf("BED6FF"), "int", "float", "boolean");
 		highlighter.word(Color.valueOf("EFC090"), "foo", "bar");
-		highlighter.regex(Color.valueOf("75715E"), "/\\*(?:.|[\\n\\r])*?\\*/"); //lines comments
+		highlighter.regex(Color.valueOf("75715E"), "/\\*(?:.|[\\n\\r])*?\\*/"); //block comments
 		textArea.setHighlighter(highlighter);
 
 		VisScrollPane scrollPane = new VisScrollPane(textArea);

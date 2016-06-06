@@ -19,6 +19,7 @@ package com.kotcrab.vis.ui.widget;
 /**
  * Custom {@link VisTextArea} supporting embedding in scroll pane by calculating required space needed for current text.
  * @author Kotcrab
+ * @since 1.1.2
  */
 public class ScrollableTextArea extends VisTextArea {
 	public ScrollableTextArea (String text) {

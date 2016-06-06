@@ -20,7 +20,10 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.utils.Array;
 import com.kotcrab.vis.ui.widget.HighlightTextArea;
 
-/** @author Kotcrab */
+/**
+ * @author Kotcrab
+ * @since 1.1.2
+ */
 public class WordHighlightRule implements HighlightRule {
 	private Color color;
 	private String word;

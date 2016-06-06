@@ -26,7 +26,10 @@ import com.badlogic.gdx.utils.Pools;
 import com.kotcrab.vis.ui.util.highlight.Highlight;
 import com.kotcrab.vis.ui.util.highlight.Highlighter;
 
-/** @author Kotcrab */
+/**
+ * @author Kotcrab
+ * @since 1.1.2
+ */
 public class HighlightTextArea extends ScrollableTextArea {
 	private Array<Highlight> highlights = new Array<Highlight>();
 	private Array<Chunk> renderChunks = new Array<Chunk>();
@@ -41,20 +44,19 @@ public class HighlightTextArea extends ScrollableTextArea {
 		super(text);
 	}
 
-	public Highlighter getHighlighter () {
-		return highlighter;
-	}
-
 	public void setHighlighter (Highlighter highlighter) {
 		this.highlighter = highlighter;
-		highlighter.bind(this, highlights);
-		processHighlighter();
+		highlighterChanged();
+	}
+
+	public Highlighter getHighlighter () {
+		return highlighter;
 	}
 
 	@Override
 	void updateDisplayText () {
 		super.updateDisplayText();
-		processHighlighter();
+		highlighterChanged();
 	}
 
 	@Override
@@ -137,10 +139,10 @@ public class HighlightTextArea extends ScrollableTextArea {
 		}
 	}
 
-	public void processHighlighter () {
+	public void highlighterChanged () {
 		if (highlights == null) return;
 		highlights.clear();
-		if (highlighter != null) highlighter.process();
+		if (highlighter != null) highlighter.process(this, highlights);
 		chunkUpdateScheduled = true;
 	}
 

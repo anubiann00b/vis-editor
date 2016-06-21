@@ -39,7 +39,7 @@ public class VisUI {
 	private static int defaultTitleAlign = Align.left;
 
 	private static SkinScale scale;
-	private static Skin skin;
+	public static Skin skin;
 
 	/** Defines possible built-in skin scales. */
 	public enum SkinScale {

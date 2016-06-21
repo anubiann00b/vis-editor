@@ -39,7 +39,7 @@ public class VisUI {
 	private static int defaultTitleAlign = Align.left;
 
 	private static SkinScale scale;
-	public static Skin skin;
+	private static Skin skin;
 
 	/** Defines possible built-in skin scales. */
 	public enum SkinScale {
@@ -94,6 +94,17 @@ public class VisUI {
 	public static void load (Skin skin) {
 		checkBeforeLoad();
 		VisUI.skin = skin;
+	}
+	
+	/**
+	 * Nulls the current skin and then loads.
+	 * 
+	 * All references to the previous skin must be invalidated. May cause dangling memory and other issues.
+	 * Only for development purposes.
+	 */
+	public static void reload (SkinScale scale) {
+		skin = null;
+		load(scale);
 	}
 
 	private static void checkBeforeLoad () {
